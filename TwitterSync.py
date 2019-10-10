@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import json
 import sys
+from datetime import datetime
 
 import twitter
 try:
@@ -70,6 +71,8 @@ if __name__ == "__main__":
             tags = tweet._json["entities"]["hashtags"]
 
             f.write("---\ndate: " + created_at +
+                    "\ntitle: " + datetime.strptime(created_at,"%a %b %d %H:%M:%S +0000 %Y").strftime("%B %d, %Y") +
+                    "\ncomments: false" +
                     # "\nexcerpt: " + text +
                     "\ncategories:\n  - Tweet\n")
             if tags != None and len(tags) > 0:
