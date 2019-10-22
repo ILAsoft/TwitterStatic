@@ -2,17 +2,29 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
+import os
 import json
 import sys
+import configparser
 from datetime import datetime
 
 import twitter
+configfile = configparser.ConfigParser()
+CONFIG_PATH = os.path.join(os.path.dirname(os.getcwd()), 'TwitterSyncSettings.ini')
 try:
-    from TwitterSyncSettings import MAX_COUNT, INCLUDE_RTS, TRIM_USER, PATH, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
-except:
-    print("First rename TwitterSyncSettings.sample as TwitterSyncSettings.py and update values!")
+    configfile.read(CONFIG_PATH)
+    config=configfile['DEFAULT']
+    MAX_COUNT = config['MAX_COUNT']
+    INCLUDE_RTS = config.getboolean('INCLUDE_RTS')
+    TRIM_USER = config.getboolean('TRIM_USER')
+    PATH = os.path.join(os.getcwd(), config['PATH'])
+    CONSUMER_KEY = config['CONSUMER_KEY']
+    CONSUMER_SECRET = config['CONSUMER_SECRET']
+    ACCESS_TOKEN_KEY = config['ACCESS_TOKEN_KEY']
+    ACCESS_TOKEN_SECRET = config['ACCESS_TOKEN_SECRET']
+except Exception as e:
+    print("First download and rename TwitterSyncSettings.sample from github.com/ILAsoft/TwitterStatic as TwitterSyncSettings.ini @ " + CONFIG_PATH + " and update its values!")
     exit()
-
 
 def get_tweets(api=None, screen_name=None, since_id=None):
     count = 0
@@ -21,8 +33,8 @@ def get_tweets(api=None, screen_name=None, since_id=None):
     while True:
         tweets = api.GetUserTimeline(
             screen_name=screen_name, max_id=earliest_tweet, include_rts=INCLUDE_RTS, trim_user=TRIM_USER,
-            since_id=(since_id if MAX_COUNT == None else 0),
-            count=(200 if (MAX_COUNT == None) else MAX_COUNT)
+            since_id=(since_id if (MAX_COUNT == None or MAX_COUNT=="None") else 0),
+            count=(200 if (MAX_COUNT == None or MAX_COUNT=="None") else int(MAX_COUNT))
         )
         if tweets:
             timeline += tweets
@@ -40,9 +52,8 @@ def get_tweets(api=None, screen_name=None, since_id=None):
 
 if __name__ == "__main__":
     import glob
-    import os
     if not os.path.isdir(PATH):
-        print("Path is undefined or does not exist. Please check/configure properly first!")
+        print("Path " + PATH + " is undefined or does not exist. Please check/configure properly first!")
         exit()
     since_id = 0
     for file in glob.glob(PATH+'tweet*'):  # , reverse=True, key=int):

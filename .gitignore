@@ -5,7 +5,11 @@ db.json
 node_modules/
 public/
 .deploy*/
+build/
+dist/
+bin/*
+lib/*
+include/*
+*.egg-info/
 comment.css
-TwitterSyncSettings.py
-TwitterSyncSettings.pyc
 __pycache__/
