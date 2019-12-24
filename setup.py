@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="twitter-sync",
-    version="0.0.2",
+    version="0.1.0",
     author="Ilya Pupko",
-    description="Python command-line script to download (or sync) and create markdown copy of tweets (for static sites).",
+    description="Python command-line script to download (or sync) and create markdown copy of tweets (for static sites) using Twitter API and Nitter.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ILAsoft/TwitterStatic",
