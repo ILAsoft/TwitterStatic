@@ -1,10 +1,9 @@
 # TwitterStatic aka twitter-sync
-Python command-line script to download (or sync) and create markdown copy of tweets older than X (e.g. for static sites).
+Python command-line script to automatically download and create markdown copy of all or subset of tweets (and keep in sync going forward). Ideal for making a replicate on a static site.
+Uses combination of Twitter's own API and Nitter.net to iterate through and parse clean body of messages.
 
-Note, assumes Python3 (but may be backward compatible).
+Available as a direct install, e.g. _pip install twitter-sync_
 
-Dependency on Twitter library - please either install this as a full package via "pip install twitter-sync" or at least the dependency https://github.com/bear/python-twitter via "pip install python-twitter").
+Dependency on Twitter library - if not doing a full package installation above, make sure to install the dependency https://github.com/bear/python-twitter via "pip install python-twitter".
 
-Btw, keep your libraries updated (eg great for loop @ https://stackoverflow.com/questions/47071256/how-to-update-upgrade-a-package-using-pip).
-
-Once installed, use sample from https://github.com/ILAsoft/TwitterStatic/blob/master/TwitterSyncSettings.sample to create TwitterSyncSettings.ini one folder above your site's folder and then run "TwitterSync.py" from the website's folder itself.
+Once installed, use sample from https://github.com/ILAsoft/TwitterStatic/blob/master/TwitterSyncSettings.sample to create TwitterSyncSettings.ini one folder above your site's folder and then run "TwitterSync.py" from the website's folder itself. Feel free to add appropriate styles to your website if you want to adjust the look and feel of the "tweets".

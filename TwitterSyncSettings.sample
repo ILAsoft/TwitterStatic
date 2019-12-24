@@ -1,10 +1,13 @@
-[DEFAULT]
 #Note - no quotes around paths and keys are needed, use values as-is
-MAX_COUNT = None
+[DEFAULT]
+PATH = source/_posts/tweets/
+IMGPATH = source/tweet/
+IMGURL = /tweet/
+SCREEN_NAME= user 
+[TWITTER]
+MAX_COUNT = 0
 INCLUDE_RTS = True
-TRIM_USER = True
-PATH = 
-CONSUMER_KEY = 
-CONSUMER_SECRET = 
-ACCESS_TOKEN_KEY = 
-ACCESS_TOKEN_SECRET = 
+CONSUMER_KEY =
+CONSUMER_SECRET =
+ACCESS_TOKEN_KEY =
+ACCESS_TOKEN_SECRET =
