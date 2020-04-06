@@ -4,6 +4,6 @@ Uses combination of Twitter's own API and Nitter.net to iterate through and pars
 
 Available as a direct install, e.g. _pip install twitter-sync_
 
-Dependency on Twitter library - if not doing a full package installation above, make sure to install the dependency https://github.com/bear/python-twitter via "pip install python-twitter".
+Dependency on Twitter library and BeautifulSoup4 - if not doing a full package installation above, make sure to install the dependencies (e.g. via "pip3 install python-twitter beautifulsoup4".
 
 Once installed, use sample from https://github.com/ILAsoft/TwitterStatic/blob/master/TwitterSyncSettings.sample to create TwitterSyncSettings.ini one folder above your site's folder and then run "TwitterSync.py" from the website's folder itself. Feel free to add appropriate styles to your website if you want to adjust the look and feel of the "tweets".
