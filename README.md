@@ -1,4 +1,4 @@
-*NOTE: THE REPO IS NO LONGER MAINTAINED and current compatibility cannot be confirmed. Fork at your own risk.*
+# *NOTE: THE REPO IS NO LONGER MAINTAINED and current compatibility cannot be confirmed. Fork at your own risk.*
 
 # TwitterStatic aka twitter-sync
 Python command-line script to automatically download and create markdown copy of all or subset of tweets (and keep in sync going forward). Ideal for making a replicate on a static site.
